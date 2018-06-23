@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+
+        <div>
+            <a href="/edit/{{ post.id }}" class="btn btn-primary">Edit</a>
+
+            <div id="Title">
+                <div class="card card-body">
+                    <h2 class="display-5">Title: {{ post.title }}</h2>
+                    <h6>Created Time: {{ post.timestamp }}</h6>
+                </div>
+            </div>
+            <div id="Title">
+                <div class="card card-body">
+                    <h2 class="display-5">Description: <br/>{{ post.desc }}</h2>
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}
+</body>
+</html>

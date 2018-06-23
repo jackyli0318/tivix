@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+
+        <div>
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td style="width: 6cm">
+                        <a href="/post/{{ post.id }}">
+                            <p style="width: 7cm; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">
+                            {{ post.title }}
+                            </p>
+                        </a>
+                    </td>
+
+                    <td style="width: 14cm;">
+                        <p style="width: 14cm; -webkit-line-clamp: 2; overflow: hidden; overflow-clip: hidden; white-space: nowrap; text-overflow: clip">
+                        <!--{% autoescape off %}-->
+                            {{ post.desc }}
+                        <!--{% endautoescape %}-->
+                        </p>
+
+                    </td>
+
+                    <td>{{ post.timestamp }}</td>
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% endblock %}
+</body>
+</html>
